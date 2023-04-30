@@ -2,8 +2,13 @@ import Image from 'next/image'
 
 function SearchInput() {
   return (
-    <div className="flex h-12 w-96 items-center gap-2 rounded-3xl border border-solid border-slate-200 px-3">
-      <Image src="/search-icon.svg" alt="Fuzzy Search" width={24} height={24} />
+    <div className="flex h-12 w-96 items-center gap-2 rounded-full border border-solid border-slate-200 px-3">
+      <Image
+        src="/assets/icons/search-icon.svg"
+        alt="Fuzzy Search"
+        width={24}
+        height={24}
+      />
       <input
         type="text"
         placeholder="Buscar"
