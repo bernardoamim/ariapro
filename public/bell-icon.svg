@@ -1,0 +1,16 @@
+<svg id="Grupo_10726" data-name="Grupo 10726" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Retângulo_3877" data-name="Retângulo 3877" width="24" height="24" fill="#fff" stroke="#656e8c" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <line id="Linha_14" data-name="Linha 14" x1="3.2" transform="translate(10.4 20)" fill="none" stroke="#656e8c" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+  <g id="Grupo_10725" data-name="Grupo 10725">
+    <g id="Grupo_10724" data-name="Grupo 10724" clip-path="url(#clip-path)">
+      <path id="Caminho_22458" data-name="Caminho 22458" d="M12,5h0a5,5,0,0,0-5,5v2.5a.855.855,0,0,1-.472.764l-.5.251a1.854,1.854,0,0,0,.829,3.513H17.146a1.854,1.854,0,0,0,.829-3.513l-.5-.251A.855.855,0,0,1,17,12.5V10" fill="#fff" stroke="#656e8c" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+      <path id="Caminho_22459" data-name="Caminho 22459" d="M13.139,5.142A4.968,4.968,0,0,0,12,5" fill="#fff" stroke="#656e8c" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+      <path id="Caminho_22460" data-name="Caminho 22460" d="M16.858,8.861A4.968,4.968,0,0,1,17,10" fill="#fff" stroke="#656e8c" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+      <circle id="Elipse_14" data-name="Elipse 14" cx="3" cy="3" r="3" transform="translate(13 3)" fill="#fff" stroke="#656e8c" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+    </g>
+  </g>
+</svg>
