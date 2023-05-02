@@ -1,5 +1,116 @@
 import { type NextPage } from 'next'
+import InfoIcon from '../../public/assets/icons/info-icon.svg'
 // import { signIn, signOut, useSession } from 'next-auth/react'
+import {
+  createColumnHelper,
+  flexRender,
+  getCoreRowModel,
+  useReactTable,
+} from '@tanstack/react-table'
+
+type Sectors = {
+  name: string
+  idealOccupation: number
+  occupation: number
+  idealNumberOfEmployees: number
+  numberOfEmployees: number
+}
+
+const defaultData: Sectors[] = [
+  {
+    name: 'Geral',
+    idealOccupation: 70,
+    occupation: 42,
+    idealNumberOfEmployees: 70,
+    numberOfEmployees: 42,
+  },
+  {
+    name: 'UI Cirúrgica',
+    idealOccupation: 70,
+    occupation: 42,
+    idealNumberOfEmployees: 70,
+    numberOfEmployees: 42,
+  },
+  {
+    name: 'UI Clínica Médica',
+    idealOccupation: 70,
+    occupation: 42,
+    idealNumberOfEmployees: 70,
+    numberOfEmployees: 42,
+  },
+  {
+    name: 'UI Pediátrica',
+    idealOccupation: 70,
+    occupation: 42,
+    idealNumberOfEmployees: 70,
+    numberOfEmployees: 42,
+  },
+  {
+    name: 'UI Obstétrica',
+    idealOccupation: 70,
+    occupation: 42,
+    idealNumberOfEmployees: 70,
+    numberOfEmployees: 42,
+  },
+  {
+    name: 'UI Neo Natal',
+    idealOccupation: 70,
+    occupation: 42,
+    idealNumberOfEmployees: 70,
+    numberOfEmployees: 42,
+  },
+  {
+    name: 'UTI Pediátrica',
+    idealOccupation: 70,
+    occupation: 42,
+    idealNumberOfEmployees: 70,
+    numberOfEmployees: 42,
+  },
+  {
+    name: 'UTI Neo Natal',
+    idealOccupation: 70,
+    occupation: 42,
+    idealNumberOfEmployees: 70,
+    numberOfEmployees: 42,
+  },
+]
+
+const columnHelper = createColumnHelper<Sectors>()
+
+const columns = [
+  columnHelper.accessor('name', {
+    cell: (info) => info.getValue(),
+    header: () => <span>Setor</span>,
+    footer: (info) => info.column.id,
+  }),
+  columnHelper.accessor((row) => row.idealOccupation, {
+    id: 'idealOccupation',
+    cell: (info) => <i>{info.getValue()}</i>,
+    header: () => <span>Ocupação ideal</span>,
+    footer: (info) => info.column.id,
+  }),
+  columnHelper.accessor('occupation', {
+    header: () => (
+      <span className="flex items-center">
+        Ocupação <InfoIcon width={24} height={24} strokeWidth={1.5} />
+      </span>
+    ),
+    cell: (info) => info.renderValue(),
+    footer: (info) => info.column.id,
+  }),
+  columnHelper.accessor('idealNumberOfEmployees', {
+    header: () => <span>Colaboradores ideal</span>,
+    footer: (info) => info.column.id,
+  }),
+  columnHelper.accessor('numberOfEmployees', {
+    header: 'Colaboradores',
+    footer: (info) => info.column.id,
+  }),
+  columnHelper.accessor('numberOfEmployees', {
+    header: 'Colaboradores',
+    footer: (info) => info.column.id,
+  }),
+]
 
 // import { api } from '~/utils/api'
 
@@ -7,45 +118,14 @@ const Home: NextPage = () => {
   // const hello = api.example.hello.useQuery({ text: 'from tRPC' })
 
   return (
-    <>
-      {/* <main className="flex min-h-screen bg-slate-100">
-        <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16 ">
-          <h1 className="text-5xl font-extrabold tracking-tight text-white sm:text-[5rem]">
-            Create <span className="text-[hsl(280,100%,70%)]">T3</span> App
-          </h1>
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-8">
-            <Link
-              className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 text-white hover:bg-white/20"
-              href="https://create.t3.gg/en/usage/first-steps"
-              target="_blank"
-            >
-              <h3 className="text-2xl font-bold">First Steps →</h3>
-              <div className="text-lg">
-                Just the basics - Everything you need to know to set up your
-                database and authentication.
-              </div>
-            </Link>
-            <Link
-              className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 text-white hover:bg-white/20"
-              href="https://create.t3.gg/en/introduction"
-              target="_blank"
-            >
-              <h3 className="text-2xl font-bold">Documentation →</h3>
-              <div className="text-lg">
-                Learn more about Create T3 App, the libraries it uses, and how
-                to deploy it.
-              </div>
-            </Link>
-          </div>
-          <div className="flex flex-col items-center gap-2">
-            <p className="text-2xl text-white">
-              {hello.data ? hello.data.greeting : 'Loading tRPC query...'}
-            </p>
-            <AuthShowcase />
-          </div>
-        </div>
-      </main> */}
-    </>
+    <div className="flex w-full flex-col p-8">
+      <div className="mb-6 flex flex-row items-center text-gray-950">
+        <h1 className="mr-1 text-2xl font-medium">
+          Olá Leonardo, veja seu resumo!
+        </h1>
+        <InfoIcon width={24} height={24} strokeWidth={1.5} />
+      </div>
+    </div>
   )
 }
 

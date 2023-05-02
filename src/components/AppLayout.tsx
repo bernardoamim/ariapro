@@ -5,11 +5,12 @@ import Head from 'next/head'
 
 interface AppLayoutProps {
   children: ReactNode
+  className?: string
 }
 
-export default function AppLayout({ children }: AppLayoutProps) {
+export default function AppLayout({ children, className }: AppLayoutProps) {
   return (
-    <>
+    <div className={className}>
       <Head>
         <title>MVP Aria Pro</title>
         <meta name="description" content="Aria Pro's" />
@@ -19,9 +20,9 @@ export default function AppLayout({ children }: AppLayoutProps) {
         <Sidebar />
         <div className="flex h-screen w-screen flex-col">
           <Header />
-          <main className="">{children}</main>
+          <main>{children}</main>
         </div>
       </div>
-    </>
+    </div>
   )
 }
