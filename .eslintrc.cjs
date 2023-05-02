@@ -36,6 +36,7 @@ const config = {
     '@typescript-eslint/no-floating-promises': 'off',
     'no-void': 'off',
     'arrow-parens': 'off',
+    'no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
   },
 }
 
