@@ -1,4 +1,9 @@
-import { ResponsiveBar } from '@nivo/bar'
+import dynamic from 'next/dynamic'
+
+const ResponsiveBar = dynamic(
+  () => import('@nivo/bar').then((mod) => mod.ResponsiveBar),
+  { ssr: false },
+)
 
 interface IBarChartDataProps {
   [k: string]: string | number

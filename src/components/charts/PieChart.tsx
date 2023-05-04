@@ -1,5 +1,4 @@
 import dynamic from 'next/dynamic'
-// import { ResponsivePie } from '@nivo/pie'
 
 const ResponsivePie = dynamic(
   () => import('@nivo/pie').then((mod) => mod.ResponsivePie),

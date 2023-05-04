@@ -1,4 +1,9 @@
-import { ResponsiveLine } from '@nivo/line'
+import dynamic from 'next/dynamic'
+
+const ResponsiveLine = dynamic(
+  () => import('@nivo/line').then((mod) => mod.ResponsiveLine),
+  { ssr: false },
+)
 
 interface ILineChartDataProps {
   id: string
