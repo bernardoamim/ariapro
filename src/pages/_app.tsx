@@ -10,18 +10,9 @@ import AppLayout from '~/components/AppLayout'
 
 const sfPro = localFont({
   variable: '--font-sfPro',
-  src: [
-    {
-      path: '../assets/fonts/SF-Pro-Display-Regular.otf',
-      weight: '400',
-      style: 'normal',
-    },
-    {
-      path: '../assets/fonts/SF-Pro-Display-Medium.otf',
-      weight: '600',
-      style: 'normal',
-    },
-  ],
+  src: '../assets/fonts/SF-Pro-Display-Regular.otf',
+  weight: '400',
+  style: 'normal',
 })
 
 const MyApp: AppType<{ session: Session | null }> = ({
