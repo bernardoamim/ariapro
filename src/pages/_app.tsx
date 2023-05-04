@@ -3,10 +3,10 @@ import { type Session } from 'next-auth'
 import { SessionProvider } from 'next-auth/react'
 import localFont from 'next/font/local'
 
+import AppLayout from '~/layouts/AppLayout'
 import { api } from '~/utils/api'
 
 import '~/styles/globals.css'
-import AppLayout from '~/components/AppLayout'
 
 const sfPro = localFont({
   variable: '--font-sfPro',
