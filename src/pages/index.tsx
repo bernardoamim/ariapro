@@ -1,5 +1,6 @@
 import { type NextPage } from 'next'
 import InfoIcon from '../../public/assets/icons/info-icon.svg'
+import { type IChartDataProps, PieChart } from '~/components/charts/PieChart'
 // import { signIn, signOut, useSession } from 'next-auth/react'
 
 type Sectors = {
@@ -78,95 +79,120 @@ const sectorsData: Sectors[] = [
   },
 ]
 
+const collaborators: IChartDataProps[] = [
+  {
+    id: 'UI Cirúrgica',
+    label: 'UI Cirúrgica',
+    color: '#6B2BF2',
+    value: 5,
+  },
+  {
+    id: 'UI Clínica Médica',
+    label: 'UI Clínica Médica',
+    color: '#11C155',
+    value: 5,
+  },
+  {
+    id: 'UI Pediátrica',
+    label: 'UI Pediátrica',
+    color: '#FF00A6',
+    value: 1,
+  },
+  {
+    id: 'UI Obstétrica',
+    label: 'UI Obstétrica',
+    color: '#0AC6FF',
+    value: 3,
+  },
+  {
+    id: 'UTI Neo Natal',
+    label: 'UTI Neo Natal',
+    color: '#3768F3',
+    value: 2,
+  },
+  {
+    id: 'UTI 1 Adulto',
+    label: 'UTI 1 Adulto',
+    color: '#FEB652',
+    value: 4,
+  },
+]
+
 // import { api } from '~/utils/api'
 
 const Home: NextPage = () => {
   // const hello = api.example.hello.useQuery({ text: 'from tRPC' })
 
   return (
-    <div className="flex w-full flex-col p-8">
-      <div className="mb-6 flex flex-row items-center text-gray-950">
-        <h1 className="mr-1 text-2xl font-medium">
-          Olá Leonardo, veja seu resumo!
-        </h1>
-        <InfoIcon width={24} height={24} strokeWidth={1.5} />
-      </div>
-      <div className="max-h-80 w-2/3 overflow-hidden overflow-y-scroll rounded-lg border border-solid border-[#95AAC94D]">
-        <table className="w-full">
-          <thead className="bg-[#EEEFFB]">
-            <tr>
-              <th className="p-4 first:text-start">Setores</th>
-              <th className="p-4 first:text-start">Leitos ocupados / Total</th>
-              <th className="p-4 first:text-start">Ocupação / Ideal (%)</th>
-              <th className="p-4 first:text-start">Nº Colaboradores / Ideal</th>
-            </tr>
-          </thead>
-          <tbody className="bg-white">
-            {sectorsData.map((sectorData) => (
-              <tr key={sectorData.name}>
-                <td className="last-of-type:border-b-none border-b border-solid border-[#95AAC94D] p-4 text-center first:text-start">
-                  {sectorData.name}
-                </td>
-
-                <td
-                  key="Leitos Ocupados/Total"
-                  className="last-of-type:border-b-none border-b border-solid border-[#95AAC94D] p-4 text-center first:text-start"
-                >
-                  {`${sectorData.numberOfBedsOccupied} / ${sectorData.numberOfBeds}`}
-                </td>
-
-                <td
-                  key="Ocupação/Ideal (%)"
-                  className="last-of-type:border-b-none border-b border-solid border-[#95AAC94D] p-4 text-center first:text-start"
-                >
-                  {Number(sectorData.occupation * 100).toFixed()} /&nbsp;
-                  {sectorData.idealOccupation}%
-                </td>
-
-                <td
-                  key="Nº Colaboradores/Ideal"
-                  className="last-of-type:border-b-none border-b border-solid border-[#95AAC94D] p-4 text-center first:text-start"
-                >
-                  {`${sectorData.numberOfEmployees} / ${sectorData.idealNumberOfEmployees}`}
-                </td>
+    <section className="flex w-full gap-8 p-8">
+      <div className="flex w-2/3 flex-col">
+        <div className="mb-6 flex flex-row items-center text-gray-950">
+          <h1 className="mr-1 text-2xl">Olá Leonardo, veja seu resumo!</h1>
+          <InfoIcon width={24} height={24} strokeWidth={1.5} />
+        </div>
+        <div className="max-h-80 w-full overflow-hidden overflow-y-scroll rounded-lg border border-solid border-[#95AAC94D]">
+          <table className="w-full">
+            <thead className="bg-[#EEEFFB]">
+              <tr>
+                <th className="p-4 first:text-start">Setores</th>
+                <th className="p-4 first:text-start">
+                  Leitos ocupados / Total
+                </th>
+                <th className="p-4 first:text-start">Ocupação / Ideal (%)</th>
+                <th className="p-4 first:text-start">
+                  Nº Colaboradores / Ideal
+                </th>
               </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-      {/* <div className="max-h-80 w-2/3 overflow-hidden overflow-y-scroll rounded-lg border border-solid border-[#95AAC94D]">
-        <table className="w-full">
-          <thead className="bg-[#EEEFFB]">
-            {table.getHeaderGroups().map((headerGroup) => (
-              <tr key={headerGroup.id}>
-                {headerGroup.headers.map((header) => (
-                  <th key={header.id} className="p-4 first:text-start">
-                    {flexRender(
-                      header.column.columnDef.header,
-                      header.getContext(),
-                    )}
-                  </th>
-                ))}
-              </tr>
-            ))}
-          </thead>
-          <tbody className="bg-white">
-            {table.getRowModel().rows.map((row) => (
-              <tr key={row.id}>
-                {row.getVisibleCells().map((cell) => (
+            </thead>
+            <tbody className="bg-white">
+              {sectorsData.map((sectorData) => (
+                <tr key={sectorData.name}>
+                  <td className="last-of-type:border-b-none border-b border-solid border-[#95AAC94D] p-4 text-center first:text-start">
+                    {sectorData.name}
+                  </td>
+
                   <td
-                    key={cell.id}
+                    key="Leitos Ocupados/Total"
                     className="last-of-type:border-b-none border-b border-solid border-[#95AAC94D] p-4 text-center first:text-start"
                   >
-                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                    {`${sectorData.numberOfBedsOccupied} / ${sectorData.numberOfBeds}`}
                   </td>
-                ))}
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div> */}
-    </div>
+
+                  <td
+                    key="Ocupação/Ideal (%)"
+                    className="last-of-type:border-b-none border-b border-solid border-[#95AAC94D] p-4 text-center first:text-start"
+                  >
+                    {Number(sectorData.occupation * 100).toFixed()} /&nbsp;
+                    {sectorData.idealOccupation}%
+                  </td>
+
+                  <td
+                    key="Nº Colaboradores/Ideal"
+                    className="last-of-type:border-b-none border-b border-solid border-[#95AAC94D] p-4 text-center first:text-start"
+                  >
+                    {`${sectorData.numberOfEmployees} / ${sectorData.idealNumberOfEmployees}`}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div className="flex w-1/3 flex-col">
+        <div className="mb-6 flex flex-row items-center text-gray-950">
+          <h1 className="mr-1 text-2xl">Colaboradores por Setor</h1>
+          <InfoIcon width={24} height={24} strokeWidth={1.5} />
+        </div>
+        <div className="relative flex h-80 max-h-80 w-full items-center justify-center rounded-lg border border-solid border-[#95AAC94D] bg-white">
+          <PieChart data={collaborators} />
+          <div className="absolute flex flex-col items-center justify-center">
+            <span className="text-2xl">220</span>
+            <span className="text-[#87888C]">Total</span>
+          </div>
+        </div>
+      </div>
+    </section>
   )
 }
 
