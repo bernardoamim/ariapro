@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Retângulo_6587" data-name="Retângulo 6587" width="24" height="24" fill="none" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="Grupo_21116" data-name="Grupo 21116" clip-path="url(#clip-path)">
+    <rect id="Retângulo_6585" data-name="Retângulo 6585" width="4" height="6" rx="1" transform="translate(13 14)" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+    <line id="Linha_267" data-name="Linha 267" x1="4" transform="translate(17 17)" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+    <line id="Linha_268" data-name="Linha 268" x1="10" transform="translate(3 17)" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+    <rect id="Retângulo_6586" data-name="Retângulo 6586" width="4" height="6" rx="1" transform="translate(7 4)" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+    <line id="Linha_269" data-name="Linha 269" x2="4" transform="translate(3 7)" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+    <line id="Linha_270" data-name="Linha 270" x2="10" transform="translate(11 7)" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+  </g>
+</svg>

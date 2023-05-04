@@ -1,5 +1,6 @@
 import { type NextPage } from 'next'
 import InfoIcon from '../../public/assets/icons/info-icon.svg'
+import FilterIcon from '../../public/assets/icons/filter-icon.svg'
 import { type IChartDataProps, PieChart } from '~/components/charts/PieChart'
 // import { signIn, signOut, useSession } from 'next-auth/react'
 
@@ -185,9 +186,17 @@ const Home: NextPage = () => {
           <InfoIcon width={24} height={24} strokeWidth={1.5} />
         </div>
         <div className="relative flex h-80 max-h-80 w-full items-center justify-center rounded-lg border border-solid border-[#95AAC94D] bg-white">
+          <FilterIcon
+            width={24}
+            height={24}
+            strokeWidth={1.5}
+            stroke="#87888C"
+            className="absolute right-5 top-5 cursor-pointer"
+            onClick={() => console.log('clicked')}
+          />
           <PieChart data={collaborators} />
           <div className="absolute flex flex-col items-center justify-center">
-            <span className="text-2xl">220</span>
+            <span className="text-2xl">20</span>
             <span className="text-[#87888C]">Total</span>
           </div>
         </div>
