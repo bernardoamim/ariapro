@@ -16,7 +16,7 @@ export default function AppLayout({ children, className }: AppLayoutProps) {
         <meta name="description" content="Aria Pro's" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="flex h-auto min-h-screen bg-slate-100">
+      <div className="flex h-auto min-h-screen bg-gray-50">
         <Sidebar />
         <div className="flex h-screen w-screen flex-col">
           <Header />

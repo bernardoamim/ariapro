@@ -83,12 +83,6 @@ const columns = [
     header: () => <span>Setor</span>,
     footer: (info) => info.column.id,
   }),
-  columnHelper.accessor((row) => row.idealOccupation, {
-    id: 'idealOccupation',
-    cell: (info) => <i>{info.getValue()}</i>,
-    header: () => <span>Ocupação ideal</span>,
-    footer: (info) => info.column.id,
-  }),
   columnHelper.accessor('occupation', {
     header: () => (
       <span className="flex items-center">
@@ -98,17 +92,18 @@ const columns = [
     cell: (info) => info.renderValue(),
     footer: (info) => info.column.id,
   }),
+  columnHelper.accessor((row) => row.idealOccupation, {
+    id: 'idealOccupation',
+    cell: (info) => <i>{info.getValue()}</i>,
+    header: () => <span>Ocupação ideal</span>,
+    footer: (info) => info.column.id,
+  }),
+  columnHelper.accessor('numberOfEmployees', {
+    header: 'Colaboradores',
+    footer: (info) => info.column.id,
+  }),
   columnHelper.accessor('idealNumberOfEmployees', {
     header: () => <span>Colaboradores ideal</span>,
-    footer: (info) => info.column.id,
-  }),
-  columnHelper.accessor('numberOfEmployees', {
-    header: 'Colaboradores',
-    footer: (info) => info.column.id,
-  }),
-  columnHelper.accessor('numberOfEmployees', {
-    header: 'Colaboradores',
-    footer: (info) => info.column.id,
   }),
 ]
 
@@ -117,6 +112,12 @@ const columns = [
 const Home: NextPage = () => {
   // const hello = api.example.hello.useQuery({ text: 'from tRPC' })
 
+  const table = useReactTable({
+    data: defaultData,
+    columns,
+    getCoreRowModel: getCoreRowModel(),
+  })
+
   return (
     <div className="flex w-full flex-col p-8">
       <div className="mb-6 flex flex-row items-center text-gray-950">
@@ -124,6 +125,37 @@ const Home: NextPage = () => {
           Olá Leonardo, veja seu resumo!
         </h1>
         <InfoIcon width={24} height={24} strokeWidth={1.5} />
+      </div>
+      <div className="w-2/3 overflow-hidden rounded-lg border border-solid border-[#95AAC94D]">
+        <table className="w-full">
+          <thead className="bg-indigo-50">
+            {table.getHeaderGroups().map((headerGroup) => (
+              <tr key={headerGroup.id}>
+                {headerGroup.headers.map((header) => (
+                  <th key={header.id} className="p-6">
+                    {header.isPlaceholder
+                      ? null
+                      : flexRender(
+                          header.column.columnDef.header,
+                          header.getContext(),
+                        )}
+                  </th>
+                ))}
+              </tr>
+            ))}
+          </thead>
+          <tbody className="bg-white">
+            {table.getRowModel().rows.map((row) => (
+              <tr key={row.id}>
+                {row.getVisibleCells().map((cell) => (
+                  <td key={cell.id}>
+                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
   )
