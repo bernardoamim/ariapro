@@ -6,7 +6,7 @@ const ResponsivePie = dynamic(
   { ssr: false },
 )
 
-export type IChartDataProps = {
+export type IPieChartDataProps = {
   id: string
   label: string
   color: string
@@ -14,13 +14,10 @@ export type IChartDataProps = {
 }
 
 interface IPieChartProps {
-  data: IChartDataProps[]
-  className?: string
+  data: IPieChartDataProps[]
 }
 
 function PieChart({ data }: IPieChartProps) {
-  // const colors = data.map((section) => section.color)
-
   return (
     <ResponsivePie
       data={data}
