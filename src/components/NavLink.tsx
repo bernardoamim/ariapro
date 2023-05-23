@@ -11,6 +11,7 @@ interface INavLinkProps {
 
 function NavLink({ children, href, linkState = 'default' }: INavLinkProps) {
   const router = useRouter()
+
   const classNames = {
     active:
       'flex w-full items-center gap-2 rounded-full bg-gradient-to-r from-[#314BF4] to-[#E010B6] p-4 text-slate-100',
